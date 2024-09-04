@@ -27,7 +27,7 @@ This repo is the official implementation of `iSeg: An Iterative Refinement-based
   and synthetic images, but also clipart, painting, sketch images and so on.
 - We further provide interaction demo which is able to segment objects by points, lines, boxes and descriptions.
 
-For further details, please check out our [paper](http://arxiv.org/abs/2403.12455).
+For further details, please check out our [paper]().
 ## Installation
 following the codeblock below to install the dependencies.
 
