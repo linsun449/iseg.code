@@ -1,4 +1,4 @@
-import os
+
 
 from transformers import CLIPTextModel, CLIPTokenizer, logging
 from diffusers import AutoencoderKL, UNet2DConditionModel, DDIMScheduler
@@ -30,23 +30,14 @@ class StableDiffusion(nn.Module):
         self.use_half = half
         print(f"[INFO] loading stable diffusion...")
 
-        if self.sd_version == "2.1":
-            model_key = "stabilityai/stable-diffusion-2-1-base"
-        elif self.sd_version == "1.5":
-            model_key = "runwayml/stable-diffusion-v1-5"
-        elif self.sd_version == "1.4":
-            model_key = "CompVis/stable-diffusion-v1-4"
-        else:
-            raise ValueError(f"Stable-diffusion version {self.sd_version} not supported.")
+        model_key = "stabilityai/stable-diffusion-2-1-base"
 
         # Create model
 
         self.vae = AutoencoderKL.from_pretrained(model_key, subfolder="vae")
         self.vae = self.vae.half() if self.use_half else self.vae
         self.tokenizer = CLIPTokenizer.from_pretrained(model_key, subfolder="tokenizer")
-        self.text_encoder = CLIPTextModel.from_pretrained(
-            model_key, subfolder="text_encoder",
-        )
+        self.text_encoder = CLIPTextModel.from_pretrained(model_key, subfolder="text_encoder")
         self.text_encoder = self.text_encoder.half() if self.use_half else self.text_encoder
         self.unet = UNet2DConditionModel.from_pretrained(model_key, subfolder="unet")
         self.unet = self.unet.half() if self.use_half else self.unet
