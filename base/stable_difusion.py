@@ -1,5 +1,3 @@
-
-
 from transformers import CLIPTextModel, CLIPTokenizer, logging
 from diffusers import AutoencoderKL, UNet2DConditionModel, DDIMScheduler
 from util.attn import AttnCLusterProcessor
