@@ -48,7 +48,7 @@ os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
 ```
 ## Usage
 
-**this work is time-efficient and memory-efficient, which means you can run it on a single GPU with 5GB memory.**
+**this work is time-efficient and memory-efficient and without training, which means you can run it on a single GPU with 5GB memory and directly run it as follows**
 
 ### Interactive Demo
 We provide an interactive demo for you to try our model. The demo can provide segmentation results by points, 
