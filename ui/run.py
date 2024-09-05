@@ -165,6 +165,7 @@ class iSeg(interaction.Ui_iSeg):
         self.submit.setEnabled(False)
 
         self.slider_iter.valueChanged.connect(self.sliderChanged)
+        self.slider_thr.valueChanged.connect(self.thrChanged)
 
         self.show_label.setText("Loading iSeg...")
         self.loder = Loader(self.process_signals)
@@ -175,6 +176,9 @@ class iSeg(interaction.Ui_iSeg):
 
     def sliderChanged(self):
         self.label_iter.setText(f"Iter:{int(self.slider_iter.value())}")
+
+    def thrChanged(self):
+        self.label_thr.setText(f"Threshold:{int(self.slider_thr.value()) / 100}")
 
     def submit_clicked(self):
         self.iSegProcess(None)
@@ -356,7 +360,7 @@ class iSeg(interaction.Ui_iSeg):
         cross_attn = F.interpolate(cross_attn, size=(self.image.shape[:2]),
                                    mode='bilinear', align_corners=False)[0]
         self.final_cross = cross_attn.clone()
-        mask = torch.cat((torch.ones_like(cross_attn[[0], :, :]) * 0.4, cross_attn), dim=0)
+        mask = torch.cat((torch.ones_like(cross_attn[[0], :, :]) * self.slider_thr.value() / 100.0, cross_attn), dim=0)
         self.mask = mask.argmax(dim=0).squeeze()
         eroded, bound = self.iSeg.get_boundry_and_eroded_mask(self.mask.cpu())
         overlay = self.iSeg.get_colored_segmentation(torch.tensor(eroded), torch.tensor(bound),
