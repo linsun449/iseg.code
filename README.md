@@ -47,13 +47,18 @@ import os
 os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
 ```
 ## Usage
+
+**this work is time-efficient and memory-efficient, which means you can run it on a single GPU with 5GB memory.**
+
 ### Interactive Demo
+We provide an interactive demo for you to try our model. The demo can provide segmentation results by points, 
+lines, boxes and descriptions. To run it, please follow the steps below:
 ```
 cd ui
 sh run.sh
 ```
 <div style="display: flex;">
-    <img width="100%" src="assert/interaction.gif">
+    <img width="100%" src="assert/interaction.gif" alt="interaction">
 </div>
 
 ### Weakly Supervised Semantic Segmentation 
