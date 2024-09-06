@@ -76,6 +76,7 @@ TODO
     author    = {Lin Sun and Jiale Cao and Jin Xie and Fahad Shahbaz Khan and Yanwei Pang   },
     title     = {iSeg: An Iterative Refinement-based Framework for Training-free Segmentation},
     journal   = {arXiv preprint arXiv:2409.03209},
+    year      = {2024},
 }
 ```
 
