@@ -27,7 +27,7 @@ This repo is the official implementation of `iSeg: An Iterative Refinement-based
   and synthetic images, but also clipart, painting, sketch images and so on.
 - We further provide interaction demo which is able to segment objects by points, lines, boxes and descriptions.
 
-For further details, please check out our [paper]().
+For further details, please check out our [paper](https://github.com/linsun449/iseg.code).
 ## Installation
 following the codeblock below to install the dependencies.
 
@@ -71,7 +71,13 @@ TODO
 TODO
 
 ## Citation
-TODO
+```
+@article{Lin_2024_iSeg,
+    author    = {Lin Sun and Jiale Cao and Jin Xie and Fahad Shahbaz Khan and Yanwei Pang   },
+    title     = {iSeg: An Iterative Refinement-based Framework for Training-free Segmentation},
+    journal   = {arXiv preprint arXiv:2409.03209},
+}
+```
 
 ## Acknowledgement
 We would like to acknowledge the contributions of public projects, such as [SLiMe](https://github.com/aliasgharkhani/SLiMe), [TagCLIP](https://github.com/linyq2117/TagCLIP) whose code has been utilized in this repository.
