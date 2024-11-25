@@ -17,6 +17,12 @@ This repo is the official implementation of `iSeg: An Iterative Refinement-based
 
 
 ## Introduction
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+    <p>Framework</p>
+    <img width="100%" src="assert/framework.png">
+</div>
+
 - We present a simple iterative training-free segmentation framework using stable diffusion, named
   iSeg. Based on the self attention maps in stable diffusion model, iSeg provides a more and more
   accurate semantic segmentation result with the increasing iterations.
@@ -49,6 +55,30 @@ os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
 ## Usage
 
 **this work is time-efficient and memory-efficient and without training, which means you can run it on a single GPU with 5GB memory and directly run it as follows**
+
+### Data Preparation
+Please struct the datasets as follows
+```none
+datasets
+├── coco2014
+│   ├── train2014
+│   │   ├── COCO_train2014_000000000009.jpg
+│   ├── val2014
+│   │   ├── COCO_val2014_000000000042.jpg
+│   ├── coco_seg_anno
+│   │   ├── 000000000009.png
+├── VOCdevkit
+│   ├── VOC2010
+│   │   ├── JPEGImages
+│   │   │   ├── 2007_000027.jpg
+│   │   ├── SegmentationClassContext
+│   │   │   ├──2008_000002.png
+│   ├── VOC2012
+│   │   ├── JPEGImages
+│   │   │   ├── 2007_000027.jpg
+│   │   ├── SegmentationClassAug
+│   │   │   ├──2007_000032.png
+```
 
 ### Interactive Demo
 We provide an interactive demo for you to try our model. The demo can provide segmentation results by points, 
@@ -90,6 +120,14 @@ where you should activate ```parser = add_voc_context_dataset_args(parser)``` wh
 - run the code ``` sh shell_ovs.sh ```
 
 ## Results
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+    <p>Natural Image</p>
+    <img width="100%" src="assert/natural.png">
+    <p>Cross Domain Image</p>
+    <img width="100%" src="assert/domain.png">
+</div>
+
 with the default configs, you will get the following results (or similar because of the noise adding into the image):
 
 - for weakly supervised semantic segmentation task:
