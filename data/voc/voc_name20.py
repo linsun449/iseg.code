@@ -1,0 +1,22 @@
+VOC12_NAME = {
+    "plane": [1, [0]],
+    "bicycle": [1, [0]],
+    "bird": [1, [0]],
+    "boat": [1, [0]],
+    "bottle": [1, [0]],
+    "bus": [1, [0]],
+    "car": [1, [0]],
+    "cat": [1, [0]],
+    "chair": [1, [0]],
+    "cow": [1, [0]],
+    "dining table": [2, [0, 1]],
+    "dog": [1, [0]],
+    "horse": [1, [0]],
+    "motorbike": [1, [0]],
+    "person": [1, [0]],
+    "potted plant": [2, [1]],
+    "sheep": [1, [0]],
+    "sofa": [1, [0]],
+    "train": [1, [0]],
+    "tv monitor": [2, [1]]
+}

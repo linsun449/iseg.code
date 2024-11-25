@@ -52,8 +52,7 @@ class iSeg(pl.LightningModule):
             t=torch.tensor(self.config.test_t),
             generate_new_noise=True,
         )
-        att_map, split = self.get_att_map(cross_attention_maps, self_attention_maps,
-                                          self.config.patch_size)
+        att_map, split = self.get_att_map(cross_attention_maps, self_attention_maps)
         final_attention_map[self.cls_label] += att_map
         return split, final_attention_map
 

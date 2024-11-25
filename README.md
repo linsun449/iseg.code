@@ -27,7 +27,7 @@ This repo is the official implementation of `iSeg: An Iterative Refinement-based
   and synthetic images, but also clipart, painting, sketch images and so on.
 - We further provide interaction demo which is able to segment objects by points, lines, boxes and descriptions.
 
-For further details, please check out our [paper](https://github.com/linsun449/iseg.code).
+For further details, please check out our [paper](https://arxiv.org/pdf/2409.03209).
 ## Installation
 following the codeblock below to install the dependencies.
 
@@ -62,17 +62,51 @@ sh run.sh
 </div>
 
 ### Weakly Supervised Semantic Segmentation 
-TODO
+
+To implement the weakly supervised semantic segmentation task, you should follow the steps below:
+
+- evaluate the voc dataset, please cd to the wsss folder and open the arguments.py, 
+where you should activate ```parser = add_voc_dataset_args(parser)``` while deactivating 
+```parser = add_coco_object_dataset_args(parser)``` in lines 105 and 106;
+- evaluate the coco dataset, please cd to the wsss folder and open the arguments.py, 
+where you should activate ```parser = add_coco_object_dataset_args(parser)``` while deactivating 
+```parser = add_voc_dataset_args(parser)``` in lines 105 and 106
+- run the code ``` sh shell_main.sh ```
 
 ### Open-Vocabulary Semantic Segmentation
-TODO
+
+- evaluate the voc dataset, please cd to the ovs folder and open the arguments.py, 
+where you should activate ```parser = add_voc_dataset_args(parser)``` while deactivating 
+```parser = add_voc_context_dataset_args(parser)``` and 
+```parser = add_coco_object_dataset_args(parser)``` in lines 130 to 132;
+- evaluate the coco object dataset, please cd to the wsss folder and open the arguments.py, 
+where you should activate ```parser = add_coco_object_dataset_args(parser)``` while deactivating 
+```parser = add_voc_dataset_args(parser)``` and 
+```parser = add_voc_context_dataset_args(parser)``` in lines 130 to 132;
+- evaluate the context dataset, please cd to the wsss folder and open the arguments.py, 
+where you should activate ```parser = add_voc_context_dataset_args(parser)``` while deactivating 
+```parser = add_voc_dataset_args(parser)``` and 
+```parser = add_coco_object_dataset_args(parser)``` in lines 130 to 132;
+- run the code ``` sh shell_ovs.sh ```
 
 ## Results
-TODO
+with the default configs, you will get the following results (or similar because of the noise adding into the image):
+
+- for weakly supervised semantic segmentation task:
+
+| VOC  | COCO |
+|:----:|:----:|
+| 75.5 | 45.5 |
+
+- for open-vocabulary semantic segmentation task:
+
+| VOC  | Context | Context |
+|:----:|:-------:|:-------:|
+| 68.6 |  30.9   |  38.4   |
 
 ## Citation
 ```
-@article{Lin_2024_iSeg,
+@article{Sun_2024_iSeg,
     author    = {Lin Sun and Jiale Cao and Jin Xie and Fahad Shahbaz Khan and Yanwei Pang   },
     title     = {iSeg: An Iterative Refinement-based Framework for Training-free Segmentation},
     journal   = {arXiv preprint arXiv:2409.03209},
