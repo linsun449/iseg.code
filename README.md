@@ -1,4 +1,4 @@
-# iSeg: An Iterative Refinement-based Framework for Training-free Segmentation
+# iSeg: An Iterative Refinement-based Framework for Training-free Segmentation (T-PAMI2026)
 
 This repo is the official implementation of `iSeg: An Iterative Refinement-based Framework for Training-free Segmentation`
 
